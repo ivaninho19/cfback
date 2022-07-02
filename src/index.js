@@ -1,8 +1,10 @@
 const express = require("express");
 const app = express();
 
-const port = 8080; // default port to listen
-
+const port = 3000; // default port to listen
+//Configuraciones
+app.set("port", process.env.PORT || port);
+app.set("json spaces", 2);
 // Configure Express to use EJS
 
 // define a route handler for the default home page
