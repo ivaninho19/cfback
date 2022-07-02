@@ -1,24 +1,18 @@
 const express = require("express");
 const app = express();
-const morgan = require("morgan");
 
-//Configuraciones
-app.set("port", process.env.PORT || 3000);
-app.set("json spaces", 2);
+const port = 8080; // default port to listen
 
+// Configure Express to use EJS
+
+// define a route handler for the default home page
 app.get("/", (req, res) => {
-  res.json({
-    Title: "Hola mundo",
-  });
+  // render the index template
+  res.render("index");
 });
 
-app.get("/hola", (req, res) => {
-  res.json({
-    Title: "PPPPPEEEROOOO",
-  });
-});
-
-//Iniciando el servidor, escuchando...
-app.listen(app.get("port"), () => {
-  console.log(`Server listening on port ${app.get("port")}`);
+// start the express server
+app.listen(port, () => {
+  // tslint:disable-next-line:no-console
+  console.log(`server started at http://localhost:${port}`);
 });
